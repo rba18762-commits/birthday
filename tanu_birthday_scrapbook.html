@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#29221e">
+<title>hey tanu! ✿</title>
+<style>
+:root{--paper:#f4e8d2;--ink:#29231f;--pink:#e7a0a2;--muted:#bcb0a0;--night:#29231f;--gold:#e7b86c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--paper);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.1;z-index:5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E")}
+.shell{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:22px 16px 28px}
+.top{width:min(100%,760px);display:flex;justify-content:space-between;align-items:center;color:#c4b6a4;font-size:11px;letter-spacing:.19em;text-transform:uppercase;margin:4px 0 24px}
+.top .flower{color:var(--pink);font-size:18px}
+main{width:min(100%,760px);flex:1;display:grid;place-items:center}
+.scene{display:none;width:100%;animation:appear .45s ease both}
+.scene.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:520px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:22px;padding:clamp(10px,3vw,30px)}
+.hand{font-family:'Segoe Print','Bradley Hand',cursive;font-weight:400;letter-spacing:-.04em}
+.paper{background:var(--paper);color:var(--ink);padding:clamp(24px,5vw,42px);box-shadow:0 15px 40px #0004;transform:rotate(-2deg);position:relative}
+.paper:after{content:"";position:absolute;top:-8px;left:36%;width:80px;height:19px;background:#d99c9b99;transform:rotate(2deg)}
+h1{font-size:clamp(48px,8vw,78px);line-height:.95;margin:10px 0 22px;font-weight:400}
+h2{font-size:clamp(29px,5vw,42px);line-height:1.05;font-weight:400;margin:10px 0 17px}
+p{line-height:1.65}
+.small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#bcae9b}
+.copy{font-size:16px;max-width:340px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:13px 19px;letter-spacing:.03em;transition:.2s;display:inline-flex;gap:12px;align-items:center;justify-content:center}
+.btn:hover{background:#554139;transform:translateY(-2px)}
+.btn.light{background:transparent;color:var(--ink)}
+.btn.light:hover{background:#e7d8bd}
+.art{min-height:340px;display:grid;place-items:center;position:relative}
+.gift{font-size:clamp(110px,20vw,175px);filter:drop-shadow(0 22px 18px #0006);animation:sway 3s ease-in-out infinite;cursor:pointer;user-select:none}
+@keyframes sway{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(4deg) translateY(-10px)}}
+.doodle{position:absolute;font-size:23px;color:var(--gold);font-family:cursive}
+.d1{top:15%;left:6%;transform:rotate(-18deg)}.d2{right:3%;top:24%;color:var(--pink);transform:rotate(14deg)}.d3{bottom:12%;left:14%;transform:rotate(9deg)}
+.caption{position:absolute;bottom:3%;right:1%;font-size:14px;line-height:1.5;transform:rotate(-8deg);color:#d7b4a7}
+.row{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
+.content{max-width:660px;margin:auto}
+.note{background:var(--paper);color:var(--ink);padding:clamp(23px,5vw,42px);position:relative;transform:rotate(-1deg);box-shadow:0 15px 35px #0003}
+.note:before{content:"";position:absolute;top:-7px;left:47%;width:76px;height:18px;background:#d99c9b99;transform:rotate(2deg)}
+.note p{font-size:17px}
+.note .hand{font-size:clamp(34px,7vw,54px)}
+.btnrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.photo{width:145px;background:#f8efdf;padding:10px 10px 24px;transform:rotate(5deg);color:#453b34;box-shadow:0 12px 30px #0005}
+.photo .photo-art{height:150px;background:linear-gradient(150deg,#7b8a91,#f3c7a0 55%,#6b5c54);display:grid;place-items:center;font-size:50px;position:relative;overflow:hidden}
+.photo .photo-art:after{content:"";position:absolute;inset:0;background:linear-gradient(30deg,transparent 45%,#fff4 46%,transparent 47%)}
+.photo p{font-size:12px;text-align:center;margin:10px 0 0}
+.progress{font-size:11px;letter-spacing:.2em;color:#ad9a85;text-transform:uppercase;margin-bottom:18px}
+.options{display:grid;gap:10px;margin:24px auto 10px;max-width:430px}
+.option{background:#f8edda;border:1px solid #d8c7ad;color:#302821;padding:13px 15px;text-align:left;display:flex;gap:12px;align-items:center;transition:.18s}
+.option:hover{transform:translateX(4px);background:#fff4df}
+.option.chosen{background:#e9c3bd;border-color:#b87e79}
+.reply{min-height:28px;color:#dfb7a8;font-style:italic;margin:14px 0}
+.quiz-layout{display:grid;grid-template-columns:1fr 170px;gap:28px;align-items:center}
+.quiz-photo{background:#f3e6d1;padding:9px 9px 20px;color:#342b24;transform:rotate(4deg)}
+.quiz-photo .photo-art{height:165px;background:linear-gradient(160deg,#8d9e9d,#d4a98e 55%,#3e4d4a);display:grid;place-items:center;font-size:65px}
+.quiz-photo p{text-align:center;font-size:12px;margin:10px 0 0}
+.cake-wrap{text-align:center;padding:25px 0}
+.cake{font-size:clamp(115px,22vw,170px);cursor:pointer;display:inline-block;filter:drop-shadow(0 16px 15px #0005);transition:.2s;user-select:none}
+.cake:hover{transform:scale(1.04) rotate(-3deg)}
+.cake.blow{animation:blow .4s ease}
+@keyframes blow{50%{transform:scale(1.14) rotate(4deg)}}
+.cakehint{color:#b6a48f;font-size:13px}
+.final-note{max-width:580px;margin:auto;text-align:center}
+.final-note .paper{transform:rotate(1deg)}
+.final-note .hand{font-size:clamp(36px,7vw,55px)}
+.ending-list{display:grid;gap:9px;max-width:400px;margin:24px auto 0}
+.ending-list button{background:transparent;color:var(--paper);border:1px solid #75655a;padding:13px 15px;text-align:left;display:flex;justify-content:space-between;transition:.2s}
+.ending-list button:hover{background:#3d322c;border-color:var(--pink)}
+.hidden{display:none!important}
+.footer{font-size:11px;color:#8f8072;letter-spacing:.1em;text-align:center;padding-top:25px}
+.confetti{position:fixed;top:-20px;width:7px;height:12px;z-index:8;pointer-events:none;animation:fall 3.5s linear forwards}
+@keyframes fall{to{transform:translate(var(--x),110vh) rotate(720deg);opacity:.7}}
+@media(max-width:590px){.top{margin-bottom:14px}.hero{grid-template-columns:1fr;gap:0;padding:8px 2px}.hero .paper{order:1;margin:0 7px}.hero .art{order:0;min-height:205px}.gift{font-size:125px}.art .caption{bottom:0;right:8%}.quiz-layout{grid-template-columns:1fr}.quiz-photo{display:none}.shell{padding:17px 13px 22px}.note{padding:28px 23px}.photo{width:120px}.photo .photo-art{height:125px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<div class="shell">
+  <header class="top"><span>little birthday thing</span><span class="flower">✿</span><span>made just because</span></header>
+  <main>
+    <section class="scene active" id="home">
+      <div class="hero">
+        <div class="paper">
+          <div class="small">a very important announcement</div>
+          <h1 class="hand">Hey<br>Tanu!</h1>
+          <p class="copy">Someone has a birthday today… and I made you a tiny internet surprise. Don't expect NASA-level technology. 😭</p>
+          <button class="btn" id="start">Click to open <span>↗</span></button>
+        </div>
+        <div class="art" aria-label="Birthday gift illustration">
+          <span class="doodle d1">✧</span><span class="doodle d2">♡</span><span class="doodle d3">✦</span>
+          <div class="gift" id="gift" role="button" tabindex="0" aria-label="Open the gift">🎁</div>
+          <div class="caption hand">wait…<br>there's something<br>for you :)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="hello">
+      <div class="content row">
+        <div class="note" style="max-width:430px">
+          <div class="small">surpriseee! ♡</div>
+          <h2 class="hand">Okay, hi again.</h2>
+          <p>This is a little birthday website, made to make you smile today. That's literally the whole agenda. No terms &amp; conditions. :))</p>
+          <div class="btnrow"><button class="btn light" id="toQuiz">Continue, I guess →</button></div>
+        </div>
+        <div class="photo"><div class="photo-art">☁️</div><p class="hand">happy birthday girl :)</p></div>
+      </div>
+    </section>
+
+    <section class="scene" id="quiz">
+      <div class="content">
+        <div class="quiz-layout">
+          <div>
+            <div class="progress" id="qprogress">little quiz · 01 / 03</div>
+            <h2 class="hand" id="qtitle">What's the perfect birthday plan?</h2>
+            <p id="qsub" style="color:#c4b5a2">There are no wrong answers. (I think.)</p>
+            <div class="options" id="options"></div>
+            <p class="reply" id="reply" aria-live="polite"></p>
+            <div class="btnrow" style="justify-content:flex-start"><button class="btn hidden" id="qnext">Next one →</button></div>
+          </div>
+          <div class="quiz-photo"><div class="photo-art">🐈</div><p class="hand">main character energy always :)</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="cakeScene">
+      <div class="content note" style="text-align:center">
+        <div class="small">the official cake ceremony</div>
+        <h2 class="hand">Make a wish, Tanu!</h2>
+        <div class="cake-wrap"><div class="cake" id="cake" role="button" tabindex="0" aria-label="Tap the cake to blow out the candles">🎂</div><p class="cakehint" id="cakehint">tap the cake to blow out the candles ↗</p></div>
+        <button class="btn light hidden" id="cakeNext">Okay, one last thing →</button>
+      </div>
+    </section>
+
+    <section class="scene" id="wish">
+      <div class="final-note">
+        <div class="paper">
+          <div class="small">a note for your birthday</div>
+          <h2 class="hand">Happy Birthday,<br>Tanu ✨</h2>
+          <p>Hope your day is as special, fun, and lovely as you are. May this year bring you lots of happiness, good food, good memories, and everything you wish for.</p>
+          <p class="hand" style="font-size:23px">Enjoy your day to the fullest ♡</p>
+          <p style="font-size:13px;color:#7e6d5c">P.S. You are legally required to eat something tasty today. I don't make the rules. 😂</p>
+        </div>
+        <div class="btnrow"><button class="btn" id="finish">Before you go…</button></div>
+      </div>
+    </section>
+
+    <section class="scene" id="end">
+      <div class="content" style="text-align:center">
+        <div class="small">before you disappear back into the world</div>
+        <h2 class="hand" style="font-size:clamp(38px,7vw,58px)">Pick your bonus 🎁</h2>
+        <p style="color:#c4b5a2">Completely optional. Like extra fries.</p>
+        <div class="ending-list">
+          <button data-bonus="A tiny reminder: drink water, eat cake, and have a ridiculously good day. ♡">A small message for you <span>↗</span></button>
+          <button data-bonus="Your birthday soundtrack: one happy song, one dramatic song, and one song to eat momos to. 🎧">A playlist idea for your day <span>↗</span></button>
+          <button data-bonus="Breaking news: birthday girl gets to ignore responsibilities for at least 17 minutes. Sources say: trust me. 😭">A silly birthday note <span>↗</span></button>
+          <button data-bonus="✨ Surprise! May good things find you this year, even on the most random Tuesdays.">One last surprise ✨ <span>↗</span></button>
+        </div>
+        <p class="reply" id="bonus" aria-live="polite"></p>
+        <p class="hand" style="font-size:23px;color:#e4b5a9">Take care and keep smiling :)) ♡</p>
+        <button class="btn light" id="replay">Replay from the start ↺</button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">a tiny corner of the internet, made with care ✿</footer>
+</div>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const scenes = [...document.querySelectorAll('.scene')];
+  function go(id){scenes.forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'});}
+  function confetti(n=65){
+    const colors=['#e7a0a2','#e7b86c','#f4e8d2','#b9a8c9','#b6b99b'];
+    for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.setProperty('--x',(Math.random()*180-90)+'px');e.style.animationDuration=(2.4+Math.random()*2)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4700);}
+  }
+  $('start').addEventListener('click',()=>{go('hello');confetti(25);});
+  $('gift').addEventListener('click',()=>{$('start').click();});
+  $('gift').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('start').click();}});
+  $('toQuiz').addEventListener('click',()=>{qIndex=0;renderQ();go('quiz');});
+  const qs=[
+    {q:"What's the perfect birthday plan?",sub:"Think carefully. This is extremely scientific.",opts:[["🍜","Good food"],["🛍️","Shopping spree"],["😴","Sleep all day"],["❤️","All of the above"]],res:["Correct answer. Food never lets us down.","Retail therapy has entered the chat. 🛍️","Honestly, iconic behaviour. 😴","A balanced and highly intelligent answer."]},
+    {q:"Your current mood?",sub:"Pick the one that feels right today.",opts:[["🥳","Excited"],["😴","Lazy"],["🍕","Hungry"],["✨","Just vibing"]],res:["As you should! Birthday energy. ✨","Nap first, party later. Approved.","The snack radar is working perfectly.","Just vibing is a whole lifestyle."]},
+    {q:"Choose your birthday reward :)",sub:"If only these were all redeemable…",opts:[["🥟","Unlimited momos"],["🏖️","No college for a week"],["🌷","More good people around"],["💫","Happiness always ♡"]],res:["Momos for life. A very fair demand.","We should probably send this to the administration. 😭","This one is actually lovely. ♡","Now THAT is the birthday wish. ✨"]}
+  ];
+  let qIndex=0,chosen=false;
+  function renderQ(){
+    chosen=false;const q=qs[qIndex];$('qprogress').textContent=`little quiz · 0${qIndex+1} / 03`;$('qtitle').textContent=q.q;$('qsub').textContent=q.sub;$('reply').textContent='';$('qnext').classList.add('hidden');$('qnext').textContent=qIndex===2?'Cake time 🎂':'Next one →';$('options').innerHTML='';
+    q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<span>${o[0]}</span><span>${o[1]}</span>`;b.addEventListener('click',()=>{if(chosen)return;chosen=true;b.classList.add('chosen');[...$('options').children].forEach(x=>x.disabled=true);$('reply').textContent=q.res[i];$('qnext').classList.remove('hidden');});$('options').appendChild(b);});
+  }
+  $('qnext').addEventListener('click',()=>{if(qIndex<2){qIndex++;renderQ();}else go('cakeScene');});
+  let blown=false;
+  function blow(){if(blown)return;blown=true;$('cake').classList.add('blow');$('cake').textContent='🍰';$('cakehint').textContent='wish made? candles out. birthday magic: on ✨';$('cakeNext').classList.remove('hidden');confetti(75);}
+  $('cake').addEventListener('click',blow);$('cake').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();blow();}});
+  $('cakeNext').addEventListener('click',()=>{go('wish');confetti(40);});
+  $('finish').addEventListener('click',()=>go('end'));
+  document.querySelectorAll('[data-bonus]').forEach(b=>b.addEventListener('click',()=>{$('bonus').textContent=b.dataset.bonus;confetti(18);}));
+  $('replay').addEventListener('click',()=>{qIndex=0;blown=false;$('cake').textContent='🎂';$('cake').classList.remove('blow');$('cakeNext').classList.add('hidden');$('cakehint').textContent='tap the cake to blow out the candles ↗';go('home');});
+})();
+</script>
+</body>
+</html>
